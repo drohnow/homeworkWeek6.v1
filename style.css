@@ -1,0 +1,21 @@
+
+.submitFormC {
+	color: #133863;
+	float: right;
+	margin-right: 25px;
+	margin-top: 50px;
+}
+
+#inputText {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 200px;
+	height: 20px;
+}
+
+.submitButtonC {
+	background-color: #236AB9
+	color: White;
+	border-radius: 16px;
+}
+

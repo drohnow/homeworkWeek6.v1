@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Homework Week#6</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<img src="https://giphy.com/embed/l0Exl9psRODcQgaIM">
+<body>
+	<div id="divButtons"></div>
+
+	<form id="submitForm" class="submitFormC">
+		<label class="label" for="inputText">Add XX</label><br>
+		<input id="inputText" type="text"><br>
+
+		<input id="submitButton"  class="submittButtonC" type="submit" value="Submit">
+	</form>
+	
+	<div id="divImages"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  	
+  	<script>
+	 //var queryURL = "http://api.giphy.com/v1/gifs/search?q=football&api_key=dc6zaTOxFJmzC&limit=10"
+
+	        // Creating an AJAX call for the specific movie button being clicked
+	        $.ajax({
+	          url: queryURL,
+	          method: "GET"
+	     }).done(function(response) {
+
+
+		//	for (i = 0; i < SPORT.length; i++) {
+				
+		//	}
+		 var imgURL = response.data[0]
+		 var data = response.data[0];
+		 console.log(data)
+
+
+
+
+          // Creating an element to hold the image
+          var image = $("<img>").attr("src", imgURL);
+
+          // Appending the image
+         $("#divImages").append(image);
+
+		})
+
+  	</script>
+
+
+
+
+
+
+
+
+</body>
