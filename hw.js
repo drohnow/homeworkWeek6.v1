@@ -26,7 +26,7 @@ var SPORTS = [];
        
         }
 
-        console.log(SPORTS);
+        
 
       }
 
@@ -50,6 +50,7 @@ function fnDisplaySport() {
 	      	$(":button").removeClass("buttonStyleClick");
 	        $("#divImages").empty();
 	       
+
 	        var SPORT = $(this).attr("sport-name");
 	        $(this).addClass("buttonStyleClick");
 	        	//buttonCreator()
@@ -62,29 +63,51 @@ function fnDisplaySport() {
 
 	        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + SPORT + "&api_key=dc6zaTOxFJmzC&limit=10"
 
-	        console.log(SPORT)
-	        console.log(queryURL)
+	       
 	      
 	        $.ajax({
 	          url: queryURL,
 	          method: "GET"
 	     }).done(function(response) {
 
+	     	 console.log(response.data)
+	     	 var data = response.data
+	     	 console.log(data)
 
-		for (i = 0; i < queryURL.length; i++) {
-				
-			var imgURL = response.data[i].images.downsized_still.url
-		 	var imgAnimatedURL = response.data[i].images.downsized.url
+
+
+	    
+		for (i = 0; i < data.length; i++) {
+			
+			var rating = response.data[i].rating
+			console.log(rating)
+			var sportDiv = $("<div>");
+
+			
+
+			var imgURL = data[i].images.downsized_still.url
+		 	var imgAnimatedURL = data[i].images.downsized.url
+	
 		
 
           var image = $("<img>").attr("src", imgURL);
+        
           image.attr("data-still", imgURL);
           image.attr("data-animated", imgAnimatedURL);
           image.attr("data-state", "still")
           image.addClass("gif")
 
-          // Appending the image
-        $("#divImages").append(image);
+      
+
+     
+          var pOne = $("<p>").text("Rating: " + rating);
+
+
+        sportDiv.append(pOne);
+        sportDiv.addClass("divSportContainer")
+        sportDiv.append(image);
+        $("#divImages").append(sportDiv);
+       
            
 
 		}
@@ -106,8 +129,6 @@ function fnDisplaySport() {
       } else {
         $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
-        console.log(state)
-        console.log(this);
       }
     };
 

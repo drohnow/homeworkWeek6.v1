@@ -9,6 +9,18 @@
 
 }
 
+.divSubmit {
+	float: right;
+}
+
+#divImages {
+	border: solid 1px Gray;
+	width: 75%;
+	height: 100%;
+	float: left;
+}
+ 
+
 .submitFormC {
 	color: #133863;
 	float: right;
@@ -53,6 +65,20 @@
 .label {
 	font-weight: bold;
 }
+
+.divSportContainer {
+	width: 50%;
+	float: left;
+	border: solid 1px Gray;
+	display: inline-block;
+		
+}
+
+.divSportContainer p {
+	color: Purple;
+	font-size: 100px
+}
+
 
 
 
